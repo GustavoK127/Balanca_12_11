@@ -1,37 +1,27 @@
-# Sistema de Gerenciamento de Obras
+# Balança-Mas-Não-Cai
 
-## Sobre o Projeto
+Sistema acadêmico de gerenciamento de obras de uma construtora. O projeto inclui uma versão web em **PHP** e o desenvolvimento de uma versão desktop em **Java Swing** com acesso ao **MySQL** via JDBC.
 
-Este projeto consiste no desenvolvimento de um sistema web de gerenciamento de obras, utilizando **PHP e banco de dados relacional**, com o objetivo de facilitar o controle e a organização das atividades de uma construtora.
+## Versão web
 
-O sistema foi proposto como uma atividade prática de desenvolvimento web, envolvendo modelagem de banco de dados, operações CRUD e autenticação de usuários.
+A versão web usa PHP, HTML5 e CSS3. O código inclui autenticação, menus de manutenção e cadastros de engenheiros, fases, funções e usuários. [Código da versão web](Balanca/balanacca/)
 
-## Funcionalidades
+## Desenvolvimento em Java
 
-- **Gerenciamento de Obras:** cadastro, edição, exclusão e consulta de obras.
-- **Gerenciamento de Engenheiros:** registro dos profissionais, incluindo nome, CREA e data de admissão.
-- **Controle de Equipes:** associação de engenheiros às obras, com registro das funções desempenhadas e períodos de trabalho.
-- **Acompanhamento de Fases:** controle das etapas de execução de cada obra, incluindo datas de início e término.
-- **Controle de Orçamentos:** gerenciamento de previsões de gastos e valores realizados.
-- **Autenticação de Usuários:** sistema de login com e-mail e senha para controle de acesso.
+A versão desktop é desenvolvida no NetBeans com Java 21 e Swing. O pacote `Dao` reúne a conexão JDBC com o MySQL e as operações de inclusão, consulta, alteração e exclusão de obras, engenheiros, fases, funções, usuários e orçamentos.
 
-## Tecnologias Utilizadas
+Os DAOs também gerenciam a alocação de engenheiros nas obras, as datas do histórico de fases e as previsões de gastos por obra, com valores previstos e realizados. [Pacote Dao da aplicação Java](Balanca_25_11/src/Dao/)
 
-- **PHP:** desenvolvimento da lógica do sistema e integração com o banco de dados.
-- **HTML5:** estruturação das páginas.
-- **CSS3:** estilização da interface.
-- **SQL:** criação e manipulação do banco de dados relacional.
+## Uso do pacote Dao
 
-## Banco de Dados
+O código Java publicado aqui corresponde à camada de acesso a dados. Para integrá-la, use o pacote `Model` do projeto Java e adicione o MySQL Connector/J às dependências. A conexão usa o banco `balanca_mas_nao_cai` por padrão.
 
-O projeto contempla a normalização dos dados e a elaboração de um **Modelo Entidade-Relacionamento (MER)** para representar as relações entre obras, engenheiros, fases de execução e orçamentos.
+| Variável de ambiente | Valor |
+| --- | --- |
+| `BALANCA_DB_URL` | URL JDBC do servidor, como `jdbc:mysql://localhost:3306/balanca_mas_nao_cai` |
+| `BALANCA_DB_USUARIO` | Usuário do MySQL |
+| `BALANCA_DB_SENHA` | Senha do MySQL |
 
-O banco de dados permite armazenar e consultar informações, garantindo maior organização e integridade dos registros.
+## Contexto acadêmico
 
-## Objetivo
-
-Aplicar conhecimentos de desenvolvimento web com PHP, modelagem de banco de dados e operações CRUD na construção de um sistema capaz de centralizar informações e auxiliar no gerenciamento de obras de uma construtora.
-
-## Contexto Acadêmico
-
-Projeto desenvolvido como atividade prática de fixação de conhecimentos em PHP e banco de dados, com foco na implementação de um sistema web integrado a uma base de dados relacional.
+O projeto aplica desenvolvimento web e desktop, modelagem de banco de dados relacional, autenticação e operações CRUD a um cenário de controle de obras.
